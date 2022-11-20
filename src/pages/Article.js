@@ -34,7 +34,7 @@ export default function Article() {
     return (
         <>
             <Helmet>
-                <title> {title} | Minimal UI </title>
+                <title> {title} | Veritas </title>
             </Helmet>
             <div
                 style={{

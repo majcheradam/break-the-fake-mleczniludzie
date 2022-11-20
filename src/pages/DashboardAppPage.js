@@ -7,9 +7,9 @@ import {
     Container,
     Typography,
     Stack,
-    TextField,
-    Menu,
-    MenuItem,
+    FormControl,
+    NativeSelect,
+    InputLabel,
 } from '@mui/material'
 
 import { BlogPostCard } from '../sections/@dashboard/blog'
@@ -23,7 +23,7 @@ export default function DashboardAppPage() {
     return (
         <>
             <Helmet>
-                <title> Dashboard | Minimal UI </title>
+                <title> Strona główna | Veritas </title>
             </Helmet>
 
             <Container maxWidth="xl">
@@ -34,16 +34,89 @@ export default function DashboardAppPage() {
                     sx={{ mb: 5 }}
                 >
                     <Typography variant="h4">Witaj na stronie! 👋🏻</Typography>
-                    <Box sx={{ minWidth: 130 }}>
-                        <TextField select size="small" value="latest">
-                            <Menu value="Siema">
-                                <MenuItem value="1">1</MenuItem>
-                                <MenuItem value="2">2</MenuItem>
-                                <MenuItem value="3">3</MenuItem>
-                                <MenuItem value="4">4</MenuItem>
-                            </Menu>
-                        </TextField>
-                    </Box>
+                    <div style={{ display: 'flex', gap: 15 }}>
+                        <Box sx={{ minWidth: 120 }}>
+                            <FormControl fullWidth>
+                                <InputLabel
+                                    variant="standard"
+                                    htmlFor="uncontrolled-native"
+                                >
+                                    Wybierz kategorię:
+                                </InputLabel>
+                                <NativeSelect
+                                    defaultValue={'Data rosnąco'}
+                                    // value={count}
+                                    // onChange={(event) =>
+                                    //     setCounter(parseInt(event.currentTarget.value))
+                                    // }
+                                >
+                                    <option value="MinisterstwoFinansow">
+                                        Ministerstwo Finansów
+                                    </option>
+                                    <option value="FinansePubliczne">
+                                        Finanse Publiczne
+                                    </option>
+                                    <option value="Podatki">
+                                        Podatki i cło
+                                    </option>
+                                    <option value="AdministracjaSkarbowa">
+                                        Administracja Skarbowa
+                                    </option>
+                                    <option value="ProjektyMinistraFinansow">
+                                        Projekty Ministar Finansów
+                                    </option>
+                                    <option value="InstytucjeFinansowe">
+                                        Instytucje Finansowe
+                                    </option>
+                                    <option value="PrzedstawiceleMF">
+                                        Przedstawiciele MF
+                                    </option>
+                                    <option value="SystemPoboruOplat">
+                                        System Poboru Opłat
+                                    </option>
+                                    <option value="KrajowyPlanOdbudowy">
+                                        Krajowy Plan Odbudowy
+                                    </option>
+                                </NativeSelect>
+                            </FormControl>
+                        </Box>
+                        <Box sx={{ minWidth: 120 }}>
+                            <FormControl fullWidth>
+                                <InputLabel
+                                    variant="standard"
+                                    htmlFor="uncontrolled-native"
+                                >
+                                    Sortuj po:
+                                </InputLabel>
+                                <NativeSelect
+                                    defaultValue={'Data rosnąco'}
+                                    // value={count}
+                                    // onChange={(event) =>
+                                    //     setCounter(parseInt(event.currentTarget.value))
+                                    // }
+                                >
+                                    <option value="data_up">
+                                        Data rosnąco
+                                    </option>
+                                    <option value="data_down">
+                                        Data malejąco
+                                    </option>
+                                    <option value="sentyment_up">
+                                        Sentyment pozytywny
+                                    </option>
+                                    <option value="sentyment_down">
+                                        Sentyment negatywny
+                                    </option>
+                                    <option value="fake_down">
+                                        Prawda pierwsza
+                                    </option>
+                                    <option value="fake_up">
+                                        Fake news pierwszy
+                                    </option>
+                                </NativeSelect>
+                            </FormControl>
+                        </Box>
+                    </div>
                 </Stack>
 
                 <Grid container spacing={3}>
