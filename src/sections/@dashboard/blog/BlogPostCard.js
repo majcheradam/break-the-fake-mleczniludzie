@@ -66,7 +66,8 @@ BlogPostCard.propTypes = {
 }
 
 export default function BlogPostCard({ post, index }) {
-    const { image, title, author, createdAt, category, sentiment, slug } = post
+    const { image, title, author, fake, createdAt, category, sentiment, slug } =
+        post
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{ position: 'relative' }}>
@@ -105,7 +106,7 @@ export default function BlogPostCard({ post, index }) {
                         variant="caption"
                         sx={{ color: 'text.disabled', display: 'block' }}
                     >
-                        {fDate(createdAt)}
+                        {fDate(createdAt)} | {author}
                     </Typography>
                     <Link href={`blog/${slug}`}>
                         <StyledTitle
@@ -146,7 +147,7 @@ export default function BlogPostCard({ post, index }) {
                                     {sentiment}
                                 </Typography>
                                 <Typography variant="subtitle2" color="green">
-                                    Prawda
+                                    {fake === false ? 'Prawda' : 'Fake'}
                                 </Typography>
                             </Stack>
                         </Stack>

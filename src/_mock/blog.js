@@ -15,6 +15,7 @@ const posts = data.map((post) => ({
     summary: post.Summary,
     source: post.Source,
     tags: post.Tags,
+    fake: post.Fake,
 }))
 
 export default posts

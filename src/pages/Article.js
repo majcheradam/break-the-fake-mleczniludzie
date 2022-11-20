@@ -29,6 +29,7 @@ export default function Article() {
         summary,
         source,
         tags,
+        fake,
     } = POSTS.find(({ slug }) => slug === params.slug)
     console.log(image)
     return (
@@ -72,7 +73,7 @@ export default function Article() {
                                 margin: 0,
                             }}
                         >
-                            Prawda
+                            {fake === false ? 'Prawda' : 'Fake'}
                         </span>
                     </h3>
                     <h3
