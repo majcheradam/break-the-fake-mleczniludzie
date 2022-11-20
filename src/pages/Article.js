@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async'
 import { useParams } from 'react-router-dom'
-import { useQuery, gql } from '@apollo/client'
 
 // @mui
 import { Grid, Button, Container, Stack, Typography } from '@mui/material'
