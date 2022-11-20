@@ -20,6 +20,7 @@ export default function Router() {
             children: [
                 { element: <Navigate to="/dashboard/app" />, index: true },
                 { path: 'app', element: <DashboardAppPage /> },
+                { path: 'app/:category', element: <DashboardAppPage /> },
                 { path: 'user', element: <UserPage /> },
                 { path: 'blog', element: <BlogPage /> },
                 { path: 'blog/:slug', element: <Article /> },

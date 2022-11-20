@@ -14,36 +14,36 @@ import {
 
 import { BlogPostCard } from '../sections/@dashboard/blog'
 
-// mock
-import POSTS from '../_mock/blog'
+import posts from '../_mock/blog.js'
 
 // ----------------------------------------------------------------------
 
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
-    //Kategorie
-    const [categories, setCategories] = useState(null)
+    const [POSTS, setPOSTS] = useState(
+        posts.sort((a, b) => {
+            return a.date - b.date
+        })
+    )
 
-    useEffect(() => {
-        fetch('https://zydsonek.pl/api/categories')
-            .then((res) => {
-                return res.json()
-            })
-            .then((data) => setCategories(data))
-    })
+    //Kategorie
+    const [category, setCategory] = useState('')
 
     // Artykuły
 
-    const [categories, setCategories] = useState(null)
+    const [articules, setArticules] = useState([])
 
     useEffect(() => {
-        fetch('https://zydsonek.pl/api/categories')
+        fetch('https://zydsonek.pl/api/articules/')
             .then((res) => {
                 return res.json()
             })
-            .then((data) => setCategories(data))
+            .then((data) => setArticules(data))
     })
+
+    console.log(articules)
+
     return (
         <>
             <Helmet>
@@ -57,7 +57,10 @@ export default function DashboardAppPage() {
                     justifyContent="space-between"
                     sx={{ mb: 5 }}
                 >
-                    <Typography variant="h4">Witaj na stronie! 👋🏻</Typography>
+                    <Typography variant="h4">
+                        Znaleziono: {articules.length ? articules.length : 0}{' '}
+                        artykuły. {category}
+                    </Typography>
                     <div style={{ display: 'flex', gap: 15 }}>
                         <Box sx={{ minWidth: 120 }}>
                             <FormControl fullWidth>
@@ -68,11 +71,11 @@ export default function DashboardAppPage() {
                                     Wybierz kategorię:
                                 </InputLabel>
                                 <NativeSelect
-                                    defaultValue={'Data rosnąco'}
-                                    // value={count}
-                                    // onChange={(event) =>
-                                    //     setCounter(parseInt(event.currentTarget.value))
-                                    // }
+                                    defaultValue={'MinisterstwoFinansow'}
+                                    // value={category}
+                                    // onChange={(event) => {
+                                    //     setCategory(event.currentTarget.value)
+                                    // }}
                                 >
                                     <option value="MinisterstwoFinansow">
                                         Ministerstwo Finansów
