@@ -38,7 +38,16 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
             }}
             {...other}
         >
-            <h1>🪬 Veritas</h1>
+            <h1 style={{ display: 'flex' }}>
+                <img
+                    src="/emoji.png"
+                    alt=""
+                    style={{ marginRight: 5 }}
+                    width={30}
+                    height={30}
+                />{' '}
+                Veritas
+            </h1>
         </Box>
     )
 
