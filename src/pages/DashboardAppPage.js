@@ -22,15 +22,28 @@ import POSTS from '../_mock/blog'
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
-    const [POSTSs, setPOSTSs] = useState([])
+    //Kategorie
+    const [categories, setCategories] = useState(null)
 
     useEffect(() => {
-        fetch('https://zydsonek.pl/api/categories').then((res) => {
-            setPOSTSs(res.json())
-        })
+        fetch('https://zydsonek.pl/api/categories')
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => setCategories(data))
     })
 
-    console.log(POSTSs.id)
+    // Artykuły
+
+    const [categories, setCategories] = useState(null)
+
+    useEffect(() => {
+        fetch('https://zydsonek.pl/api/categories')
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => setCategories(data))
+    })
     return (
         <>
             <Helmet>

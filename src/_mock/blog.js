@@ -2,7 +2,7 @@ import data from '../articules.json'
 
 // ----------------------------------------------------------------------
 
-const posts = data.map((post, i) => ({
+const posts = data.map((post) => ({
     id: post.Author,
     slug: post.Slug,
     image: post.Image,
