@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // @mui
 import {
     Box,
@@ -19,7 +19,18 @@ import POSTS from '../_mock/blog'
 
 // ----------------------------------------------------------------------
 
+// ----------------------------------------------------------------------
+
 export default function DashboardAppPage() {
+    const [POSTSs, setPOSTSs] = useState([])
+
+    useEffect(() => {
+        fetch('https://zydsonek.pl/api/categories').then((res) => {
+            setPOSTSs(res.json())
+        })
+    })
+
+    console.log(POSTSs.id)
     return (
         <>
             <Helmet>

@@ -57,7 +57,7 @@ export default function Article() {
                     <h3>{title}</h3>
                     <summary>{summary}</summary>
                     {text.map((text) => (
-                        <p>{text}</p>
+                        <p key={text}>{text}</p>
                     ))}
                 </div>
                 <div
@@ -107,6 +107,7 @@ export default function Article() {
                         Tagi:{' '}
                         {tags.map((tag) => (
                             <span
+                                key={tag}
                                 style={{
                                     color: 'grey',
                                 }}
